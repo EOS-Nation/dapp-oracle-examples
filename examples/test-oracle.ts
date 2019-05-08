@@ -9,7 +9,7 @@ import { Action } from "../src/interfaces";
             {actor: "oraclenation", permission: "ops"}
         ],
         data: {
-            uri: Buffer.from('https://api.bancor.network/0.1/currencies/rate?toCurrencyCode=BNT&fromCurrencyCodes=USD', 'utf8'),
+            uri: Buffer.from('https+json://data.USD/api.bancor.network/0.1/currencies/rate?toCurrencyCode=EOS&fromCurrencyCodes=USD', 'utf8'),
         }
     }
     await transact([action]).catch(e => console.error(e));
