@@ -7,12 +7,12 @@ Fetch the USD value of EOS using bancor.network API endpoint.
 ```ts
 (async () => {
     // Optional paramaters
-    const from = "EOS";
-    const to = "USD";
+    const toCurrencyCode = "EOS";
+    const fromCurrencyCodes = "USD";
 
     // DSP URI request
-    const endpoint = `api.bancor.network/0.1/currencies/rate?toCurrencyCode=${from}&fromCurrencyCodes=${to}`;
-    const uri = `https+json://data.${to}/${endpoint}`
+    const endpoint = `api.bancor.network/0.1/currencies/rate?toCurrencyCode=${toCurrencyCode}&fromCurrencyCodes=${fromCurrencyCodes}`;
+    const uri = `https+json://data.${fromCurrencyCodes}/${endpoint}`
 
     // EOSIO action
     const action: Action = {
