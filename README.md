@@ -8,13 +8,14 @@ Fetch the USD value of EOS using bancor.network API endpoint.
 
 ```ts
 (async () => {
-    // Optional paramaters
-    const toCurrencyCode = "EOS";
-    const fromCurrencyCodes = "USD";
-
-    // DSP URI request
-    const endpoint = `api.bancor.network/0.1/currencies/rate?toCurrencyCode=${toCurrencyCode}&fromCurrencyCodes=${fromCurrencyCodes}`;
-    const uri = `https+json://data.${fromCurrencyCodes}/${endpoint}`
+    /**
+     * URI for DSP Oracle request
+     *
+     * protocol = https+json
+     * JSON params = data.USD
+     * endpoint = api.bancor.network/0.1/currencies/rate?toCurrencyCode=EOS&fromCurrencyCodes=USD
+     */
+    const uri = 'https+json://data.USD/api.bancor.network/0.1/currencies/rate?toCurrencyCode=EOS&fromCurrencyCodes=USD'
 
     // EOSIO action
     const action: Action = {
@@ -24,12 +25,11 @@ Fetch the USD value of EOS using bancor.network API endpoint.
             {actor: "oraclenation", permission: "ops"}
         ],
         data: {
-            // uri is converted into bytes (Buffer)
             uri: Buffer.from(uri, 'utf8'),
         }
     }
-    // Push transaction
-    await transact([action]).catch(e => console.error(e));
+    // Push EOSIO transaction
+    await transact([action])
 
 })().catch(e => console.error(e));
 ```
