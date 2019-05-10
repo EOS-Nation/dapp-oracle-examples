@@ -4,6 +4,15 @@
 
 Fetch the USD value of EOS using bancor.network API endpoint.
 
+**Configure**
+
+Add/Modify the `.env` file
+
+```env
+DSP_ENDPOINT='https://dsp.eosn.io'
+PRIVATE_KEY='<PRIVATE KEY>'
+```
+
 **Javascript**
 
 ```ts
